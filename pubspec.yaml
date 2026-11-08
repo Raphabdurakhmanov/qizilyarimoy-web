@@ -54,6 +54,10 @@ dependencies:
   url_launcher: ^6.3.2
   youtube_player_iframe: ^5.2.1
 
+# flutter_html 3.0.0 uses querySelector 'matches' removed in newer html versions
+dependency_overrides:
+  html: 0.15.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
