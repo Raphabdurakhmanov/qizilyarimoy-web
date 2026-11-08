@@ -1,4 +1,5 @@
 import 'package:app/config/widgets/no_internet_widget.dart';
+import 'package:app/config/widgets/responsive.dart';
 import 'package:app/features/auth/presentation/login_screen.dart';
 import 'package:app/features/auth/presentation/splash_screen.dart';
 import 'package:app/features/course/domain/entities/course_entity.dart';
@@ -42,6 +43,22 @@ class AppRoutes {
 class AppRouter {
   static final GoRouter router = GoRouter(
     initialLocation: AppRoutes.splash,
+    redirect: (BuildContext context, GoRouterState state) {
+      // on web the page can be refreshed, then `extra` is lost
+      const needExtra = [
+        AppRoutes.lentaDetail,
+        AppRoutes.courseDetail,
+        AppRoutes.editProfile,
+        AppRoutes.faqDetail,
+        AppRoutes.myCoursesAbout,
+        AppRoutes.courseStartLearning,
+        AppRoutes.noInternet,
+      ];
+      if (state.extra == null && needExtra.contains(state.matchedLocation)) {
+        return AppRoutes.splash;
+      }
+      return null;
+    },
     routes: <RouteBase>[
       GoRoute(
         path: AppRoutes.splash,
@@ -52,7 +69,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.login,
         builder: (BuildContext context, GoRouterState state) {
-          return LoginScreen();
+          return DesktopPage(maxWidth: 520, child: LoginScreen());
         },
       ),
       GoRoute(
@@ -65,62 +82,62 @@ class AppRouter {
         path: AppRoutes.lentaDetail,
         builder: (BuildContext context, GoRouterState state) {
           final news = state.extra as NewsEntity;
-          return LentaDetailScreen(news: news);
+          return DesktopPage(child: LentaDetailScreen(news: news));
         },
       ),
       GoRoute(
         path: AppRoutes.courseDetail,
         builder: (BuildContext context, GoRouterState state) {
-          return CourseDetailsScreen(course: state.extra as CourseEntity);
+          return DesktopPage(child: CourseDetailsScreen(course: state.extra as CourseEntity));
         },
       ),
       GoRoute(
         path: AppRoutes.editProfile,
         builder: (BuildContext context, GoRouterState state) {
-          return EditProfileScreen(profile: state.extra as ProfileEntity);
+          return DesktopPage(child: EditProfileScreen(profile: state.extra as ProfileEntity));
         },
       ),
       GoRoute(
         path: AppRoutes.faq,
         builder: (BuildContext context, GoRouterState state) {
-          return FaqScreen();
+          return DesktopPage(child: FaqScreen());
         },
       ),
       GoRoute(
         path: AppRoutes.faqDetail,
         builder: (BuildContext context, GoRouterState state) {
-          return FaqDetailScreen(guideline: state.extra as GuidelineEntity);
+          return DesktopPage(child: FaqDetailScreen(guideline: state.extra as GuidelineEntity));
         },
       ),
       GoRoute(
         path: AppRoutes.feedback,
         builder: (BuildContext context, GoRouterState state) {
-          return FeedbackScreen();
+          return DesktopPage(child: FeedbackScreen());
         },
       ),
       GoRoute(
         path: AppRoutes.feedback,
         builder: (BuildContext context, GoRouterState state) {
-          return FeedbackScreen();
+          return DesktopPage(child: FeedbackScreen());
         },
       ),
       GoRoute(
         path: AppRoutes.myCourses,
         builder: (BuildContext context, GoRouterState state) {
-          return MyCoursesScreen();
+          return DesktopPage(child: MyCoursesScreen());
         },
       ),
       GoRoute(
         path: AppRoutes.myCoursesAbout,
         builder: (BuildContext context, GoRouterState state) {
           final myCourse = state.extra as MyCourseEntity;
-          return MyCourseAboutScreen(myCourse: myCourse);
+          return DesktopPage(child: MyCourseAboutScreen(myCourse: myCourse));
         },
       ),
       GoRoute(
         path: AppRoutes.notifications,
         builder: (BuildContext context, GoRouterState state) {
-          return NotificationScreen();
+          return DesktopPage(child: NotificationScreen());
         },
       ),
       GoRoute(
@@ -129,10 +146,13 @@ class AppRouter {
           var extra = state.extra as Map<String, dynamic>;
           final lesson = extra['lesson'] as LessonEntity;
           final courseId = extra['course'] as int;
-          return CourseLearnScreen(
-            lesson: lesson,
-            courseId: courseId,
-            key: extra['key'],
+          return DesktopPage(
+            maxWidth: 1000,
+            child: CourseLearnScreen(
+              lesson: lesson,
+              courseId: courseId,
+              key: extra['key'],
+            ),
           );
         },
       ),
@@ -140,7 +160,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.noInternet,
         builder: (BuildContext context, GoRouterState state) {
-          return NoInternetWidget(onRetry: state.extra as VoidCallback);
+          return DesktopPage(child: NoInternetWidget(onRetry: state.extra as VoidCallback));
         },
       ),
     ],
