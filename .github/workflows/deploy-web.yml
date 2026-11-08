@@ -1,0 +1,41 @@
+name: Build & deploy Flutter web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  API_BASE_URL: https://raphabdurakhmanov.pythonanywhere.com
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter --version
+      - run: flutter pub get
+
+      - name: Build web
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          flutter build web --release \
+            --base-href "/${REPO_NAME}/" \
+            --dart-define=API_BASE_URL=${API_BASE_URL}
+          cp build/web/index.html build/web/404.html
+
+      - name: Publish to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
+          force_orphan: true

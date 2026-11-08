@@ -1,0 +1,344 @@
+{
+  "app_basic_info": {
+    "title": {
+      "value": "Yarim Oy: Learn & Volunteer",
+      "comment": "≤30 chars. Combines brand + core value (learning + volunteering/gamified productivity). Manifest label shows 'Online Volontyor'; unified concise store title."
+    },
+    "short_description": {
+      "value": "Learn, track progress, and volunteer through structured courses & tasks.",
+      "comment": "≤80 chars. Highlights education, productivity, task/courses."
+    },
+    "full_description": {
+      "value": "Yarim Oy is an educational and productivity platform that helps aspiring volunteers and learners build skills through structured courses, interactive lessons, downloadable materials, and performance tracking.\n\nKEY FEATURES\n• Multi-language support (English, Russian, Uzbek – Latin & Cyrillic)\n• Secure account-based access (login required)\n• Browse and enroll in structured course modules\n• Watch lessons (video-enabled) and read learning content\n• Track lesson and task completion progress\n• Download course files for offline viewing\n• Leaderboard & productivity score to motivate engagement\n• View personal statistics: completed courses, tasks, productivity score\n• In-app notifications for updates and progress events\n• Feedback section for user input and improvement\n• Profile customization (avatar, name, username, region)\n• FAQ & guidelines for onboarding\n\nWHO IS IT FOR?\nLearners, volunteers, and organizations seeking structured growth, engagement, and tracking.\n\nHOW IT WORKS\n1. Sign in with your account\n2. Select a course and start lessons\n3. Complete tasks and track progress\n4. Earn productivity-based placement in leaderboards\n5. Download materials for flexible study\n\nPRIVACY & SAFETY\nWe collect only essential account and usage data (e.g., username, avatar, progress) to provide core functionality. No financial, health, or sensitive biometric data is collected.\n\nNO ADS – NO IN-APP PURCHASES\nFocused experience without monetization distractions.\n\nLANGUAGES SUPPORTED\nEnglish (en), Russian (ru), Uzbek (uz-Latn & uz-Cyrl)\n\nStay productive, keep learning, and grow through structured pathways with Yarim Oy.",
+      "comment": "Under 4000 chars. Structured for readability with feature bullets and trust messaging."
+    },
+    "category": {
+      "value": "App > Education",
+      "comment": "Courses, learning modules, leaderboard—fits Education."
+    },
+    "tags": {
+      "value": [
+        "education",
+        "learning",
+        "courses",
+        "volunteering",
+        "productivity",
+        "leaderboard",
+        "multilingual",
+        "offline access"
+      ],
+      "comment": "Aligned with feature set for Play Console discoverability."
+    }
+  },
+  "graphics_and_media": {
+    "app_icon": {
+      "spec": "512x512 PNG, 32-bit, no rounded corners",
+      "concept_suggestion": "Flat minimal icon: letter 'Y' stylized as an upward progress arrow in primary blue over clean white or light gradient.",
+      "comment": "Brand consistency + legibility."
+    },
+    "feature_graphic": {
+      "spec": "1024x500 PNG/JPG",
+      "concept_suggestion": "Left: tagline 'Learn • Track • Contribute'. Right: mock UI composite (course list, video player, leaderboard card). Soft gradient background.",
+      "comment": "Communicates breadth quickly."
+    },
+    "phone_screenshots": {
+      "required_quantity": 2,
+      "recommended_quantity": 8,
+      "suggested_set_ordered": [
+        "Splash + Login (branding & entry)",
+        "Home dashboard (navigation + summary)",
+        "Courses list (modules visible)",
+        "Course details (lesson list + progress)",
+        "Lesson player (video + controls)",
+        "Leaderboard (productivity scores)",
+        "Profile statistics (tasks, courses, avatar)",
+        "Downloads or Notifications screen"
+      ],
+      "comment": "1080px width min; keep consistent device frame; emphasize progression."
+    },
+    "tablet_screenshots": {
+      "comment": "Reuse key flows in landscape if layout adapts; optional but improves ranking for large screens."
+    },
+    "promo_video": {
+      "value": null,
+      "comment": "Optional. If created, upload to YouTube and provide link; include 5–10s hook, 30–60s total."
+    }
+  },
+  "versioning": {
+    "version_code": {
+      "value": 1,
+      "comment": "Derived from pubspec (1.0.0+1) and build.gradle using flutter.versionCode."
+    },
+    "version_name": {
+      "value": "1.0.0",
+      "comment": "From pubspec; semantic version."
+    }
+  },
+  "contact_info": {
+    "email": {
+      "value": "support@yourdomain.com",
+      "comment": "Mandatory—replace with production support mailbox."
+    },
+    "phone": {
+      "value": null,
+      "comment": "Optional; omit if not staffed."
+    },
+    "website": {
+      "value": "https://yourdomain.com",
+      "comment": "Optional landing/marketing site."
+    }
+  },
+  "privacy_and_permissions": {
+    "privacy_policy_url": {
+      "value": "https://yourdomain.com/privacy",
+      "comment": "Must be a public HTTPS URL; ensure policy discloses data categories below."
+    },
+    "declared_permissions": {
+      "value": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.CHANGE_WIFI_STATE",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.POST_NOTIFICATIONS"
+      ],
+      "comment": "From AndroidManifest.xml. Consider removing WRITE_EXTERNAL_STORAGE on API 30+ (scoped storage); justify camera (avatar capture) & storage (downloads)."
+    },
+    "data_safety": {
+      "data_collection_overview": {
+        "comment": "Assessment based on inspected entities, models, and usage; no advertising SDKs or analytics libs detected."
+      },
+      "data_types": [
+        {
+          "category": "Personal Info",
+            "items": [
+              {
+                "name": "Full name",
+                "collected": true,
+                "shared": false,
+                "purpose": ["App functionality (profile display)", "User account management"],
+                "optional": true,
+                "retention": "Retained until account deletion",
+                "comment": "Field fullName in ProfileEntity."
+              },
+              {
+                "name": "Username",
+                "collected": true,
+                "shared": false,
+                "purpose": ["Authentication", "App functionality"],
+                "optional": false,
+                "retention": "Retained until account deletion",
+                "comment": "Used for login and identification."
+              },
+              {
+                "name": "Avatar image",
+                "collected": true,
+                "shared": false,
+                "purpose": ["App functionality (profile personalization)"],
+                "optional": true,
+                "retention": "Retained until user replaces or deletes account",
+                "comment": "Image path stored; may come from upload or default."
+              },
+              {
+                "name": "Region",
+                "collected": true,
+                "shared": false,
+                "purpose": ["Localization", "App functionality"],
+                "optional": true,
+                "retention": "Retained until account deletion",
+                "comment": "region field in model."
+              }
+            ]
+        },
+        {
+          "category": "App Activity",
+          "items": [
+            {
+              "name": "Course/lesson progress",
+              "collected": true,
+              "shared": false,
+              "purpose": ["App functionality", "User progress tracking"],
+              "optional": false,
+              "retention": "Retained while account active",
+              "comment": "Completion, tasks, lessons for progress UI."
+            },
+            {
+              "name": "Productivity score & leaderboard ranking",
+              "collected": true,
+              "shared": false,
+              "purpose": ["Gamification", "App functionality"],
+              "optional": false,
+              "retention": "Retained while account active",
+              "comment": "productivityScore and ranking."
+            },
+            {
+              "name": "Downloaded file references",
+              "collected": true,
+              "shared": false,
+              "purpose": ["Offline access", "App functionality"],
+              "optional": true,
+              "retention": "While file remains or until user clears storage",
+              "comment": "Stored locally via DownloadService + Isar."
+            }
+          ]
+        },
+        {
+          "category": "App Info & Performance",
+          "items": [
+            {
+              "name": "Crash/technical logs",
+              "collected": false,
+              "comment": "No crash/analytics SDK integrated; update if added later."
+            }
+          ]
+        },
+        {
+          "category": "Device or Other IDs",
+          "items": [
+            {
+              "name": "Installation identifiers",
+              "collected": false,
+              "comment": "No explicit collection beyond runtime tokens."
+            }
+          ]
+        },
+        {
+          "category": "Sensitive Info",
+          "items": [
+            {
+              "name": "Passwords / credentials",
+              "collected": "Transient only",
+              "shared": false,
+              "purpose": ["Authentication"],
+              "optional": false,
+              "retention": "Not stored in plain form client-side",
+              "comment": "Password entered and sent to backend; tokens persisted."
+            }
+          ]
+        }
+      ],
+      "security_practices": {
+        "data_encrypted_in_transit": true,
+        "user_can_request_deletion": true,
+        "comment": "Dio over HTTPS assumed; backend must honor deletion. Expose deletion path in UI/policy."
+      },
+      "data_sharing_summary": {
+        "shared_with_third_parties": false,
+        "comment": "No third-party sharing implemented; adjust if analytics/ads added."
+      },
+      "ads": {
+        " serves_ads": false,
+        "comment": "No ad SDK detected."
+      }
+    }
+  },
+  "app_access": {
+    "login_required": {
+      "value": true,
+      "comment": "Login screen gate; routes depend on authenticated state."
+    },
+    "access_restrictions": {
+      "value": "General account-based access; no subscription layer evident.",
+      "comment": "No paywall or role-specific gating in inspected code."
+    },
+    "special_requirements": {
+      "value": null,
+      "comment": "No age gates, no enterprise code, no invitation system found."
+    }
+  },
+  "content_and_rating": {
+    "target_audience": {
+      "value": "13+ general learners",
+      "comment": "Social interaction (leaderboard, feedback) suggests not under-13 COPPA audience."
+    },
+    "content_rating_estimate": {
+      "value": "Everyone",
+      "comment": "No mature content, violence, user-generated unrestricted media, or gambling."
+    },
+    "interactive_elements": {
+      "value": ["Users interact", "Shares user performance (leaderboard)"],
+      "comment": "Leaderboard visibility counts as user performance sharing."
+    }
+  },
+  "pricing_and_distribution": {
+    "pricing": {
+      "value": "Free",
+      "comment": "No billing/in-app purchase libraries present."
+    },
+    "in_app_purchases": {
+      "value": false,
+      "comment": "No purchase flow or billing dependency detected."
+    },
+    "monetization_notes": {
+      "value": "No ads; purely functional learning experience.",
+      "comment": "Keeps user trust; update if monetization added."
+    },
+    "supported_countries": {
+      "value": "Global (recommend excluding regions unsupported by backend if any).",
+      "comment": "Adjust if backend geo-restricted."
+    },
+    "distribution_restrictions": {
+      "value": null,
+      "comment": "None indicated."
+    }
+  },
+  "localization": {
+    "supported_locales": {
+      "value": ["en", "ru", "uz-Latn", "uz-Cyrl"],
+      "comment": "Detected via EasyLocalization configuration."
+    }
+  },
+  "store_listing_quality": {
+    "seo_keywords": {
+      "value": [
+        "skill courses",
+        "volunteer training",
+        "learning tasks",
+        "leaderboard learning",
+        "productivity education",
+        "offline course downloads"
+      ],
+      "comment": "Not directly entered into Play Console but helpful for wording descriptions."
+    },
+    "copy_recommendations": {
+      "value": [
+        "Highlight multilingual support early.",
+        "Emphasize offline download capability.",
+        "Social proof via leaderboard progress metrics."
+      ],
+      "comment": "Optimizes conversion in listing text."
+    }
+  },
+  "risk_and_compliance_flags": {
+    "camera_use": {
+      "value": "For capturing or updating profile avatar.",
+      "comment": "Explain in privacy policy + runtime permission rationale."
+    },
+    "external_storage_use": {
+      "value": "For saving downloaded course materials.",
+      "comment": "Consider migrating to scoped storage / SAF if targeting modern SDK."
+    },
+    "notifications_use": {
+      "value": "To inform users about course updates, progress, or system messages.",
+      "comment": "POST_NOTIFICATIONS required on Android 13+; provide in-app toggle if implemented."
+    }
+  },
+  "placeholders_to_confirm": {
+    "privacy_policy_url": "Replace with live hosted policy.",
+    "support_email": "Replace with monitored mailbox.",
+    "website": "Replace if marketing site exists.",
+    "promo_video": "Optional YouTube link."
+  },
+  "next_actions_recommended": {
+    "value": [
+      "Remove WRITE_EXTERNAL_STORAGE if targeting SDK 33+ unless legacy fallback required.",
+      "Add explicit account deletion UX if not yet implemented.",
+      "Add analytics (if desired) and update Data Safety before release.",
+      "Provide localized store listing text (ru, uz) matching in-app languages.",
+      "Confirm backend uses HTTPS only (set android:usesCleartextTraffic=false when done)."
+    ],
+    "comment": "Hardening + compliance"
+  }
+}
